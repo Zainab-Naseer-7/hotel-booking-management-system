@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VELA PRIVÉ | World-Class Luxury Hotels & Resorts</title>
+  <meta name="description" content="Immerse in bespoke international hospitality. Discover private overwater villas, historic European palaces, and secluded cliffside sanctuaries." />
+  
+  <!-- FontAwesome 6 for Luxury Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== -->
+  <header class="navbar" id="navbar">
+    <div class="brand-logo" id="brand-logo">
+      <div class="brand-icon">
+        <i class="fa-solid fa-gem"></i>
+      </div>
+      <div>
+        <div class="brand-name">VELA PRIVÉ</div>
+        <span class="brand-sub">Hotels & Resorts</span>
+      </div>
+    </div>
+
+    <nav>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#discovery" class="nav-link active" data-view="home">Sanctuaries</a></li>
+        <li><a href="#destinations" class="nav-link" data-view="home">Destinations</a></li>
+        <li><a href="#offers" class="nav-link" data-view="home">Privileges</a></li>
+        <li><a href="#vip" class="nav-link" data-view="home">VIP Club</a></li>
+        <li><a href="#" class="nav-link" data-view="dashboard"><i class="fa-solid fa-compass"></i> My Trips</a></li>
+        <li><a href="#" class="nav-link" data-view="admin"><i class="fa-solid fa-chart-line"></i> Management SaaS</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- Theme Switcher -->
+      <button class="btn-icon" id="theme-toggle-btn" title="Toggle Theme" aria-label="Toggle Theme">
+        <i class="fa-regular fa-sun"></i>
+      </button>
+
+      <!-- Wishlist Counter -->
+      <button class="btn-icon wishlist-btn-badge" id="nav-wishlist-btn" title="View Wishlist" aria-label="View Wishlist">
+        <i class="fa-regular fa-heart"></i>
+        <span class="badge-count" id="nav-wishlist-count">0</span>
+      </button>
+
+      <!-- Customer Pill Button -->
+      <button class="btn-outline" style="padding: 8px 18px; font-size: 0.85rem;" onclick="VelaApp.switchView('dashboard')">
+        <i class="fa-solid fa-crown" style="color: var(--gold-primary);"></i>
+        <span>Mr. Vance (VIP)</span>
+      </button>
+
+      <!-- Mobile Menu Toggle -->
+      <button class="btn-icon mobile-menu-toggle" id="mobile-menu-btn" aria-label="Open Navigation">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN VIEWS CONTAINER
+       ========================================================================== -->
+  <main>
+    
+    <!-- 1. HOME VIEW -->
+    <div id="home-view">
+      
+      <!-- HERO SECTION -->
+      <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-tag">
+          <i class="fa-solid fa-sparkles"></i>
+          <span>Curated Private Sanctuaries 2026</span>
+        </div>
+
+        <h1 class="hero-title">
+          Stay Somewhere <span class="gold-text">Extraordinary.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Immerse yourself in ultra-exclusive overwater atolls, historic European palaces, and secluded cliffside estates with bespoke personal butler service.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#discovery" class="btn-gold">
+            <span>Explore Sanctuaries</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#offers" class="btn-outline">
+            <i class="fa-solid fa-award"></i>
+            <span>Private Privileges</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">28+</div>
+            <div class="stat-label">Rare Sanctuaries</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">42</div>
+            <div class="stat-label">Michelin Stars</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">99.8%</div>
+            <div class="stat-label">Guest Acclaim</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">14</div>
+            <div class="stat-label">Countries</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FLOATING GLASS BOOKING SEARCH WIDGET -->
+      <div class="booking-widget-wrapper">
+        <div class="booking-widget">
+          
+          <!-- Destination Field -->
+          <div class="widget-field">
+            <label class="widget-label" for="search-destination">
+              <i class="fa-solid fa-location-dot"></i> Destination
+            </label>
+            <input 
+              type="text" 
+              id="search-destination" 
+              class="widget-input" 
+              placeholder="e.g. Paris, Maldives, Kyoto..."
+            />
+          </div>
+
+          <!-- Check-in Field -->
+          <div class="widget-field">
+            <label class="widget-label" for="search-checkin">
+              <i class="fa-solid fa-calendar-check"></i> Check-in
+            </label>
+            <input type="date" id="search-checkin" class="widget-input" />
+          </div>
+
+          <!-- Check-out Field -->
+          <div class="widget-field">
+            <label class="widget-label" for="search-checkout">
+              <i class="fa-solid fa-calendar-xmark"></i> Check-out
+            </label>
+            <input type="date" id="search-checkout" class="widget-input" />
+          </div>
+
+          <!-- Guests Field -->
+          <div class="widget-field" id="widget-guests-field" style="cursor: pointer;">
+            <div class="widget-label">
+              <i class="fa-solid fa-user-group"></i> Guests & Suites
+            </div>
+            <div style="font-weight: 500; font-size: 0.95rem; color: var(--text-primary);" id="guests-summary-text">
+              2 Guests, 1 Room
+            </div>
+
+            <!-- Dropdown -->
+            <div class="guest-counter-dropdown" id="guests-dropdown">
+              <div class="guest-row">
+                <div>
+                  <div style="font-weight: 600; font-size: 0.9rem;">Adult Guests</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Ages 13 and above</div>
+                </div>
+                <div class="counter-controls">
+                  <button class="btn-counter" id="adult-minus" type="button">-</button>
+                  <span id="adult-count" style="font-weight: 600; width: 20px; text-align: center;">2</span>
+                  <button class="btn-counter" id="adult-plus" type="button">+</button>
+                </div>
+              </div>
+
+              <div class="guest-row">
+                <div>
+                  <div style="font-weight: 600; font-size: 0.9rem;">Suites / Rooms</div>
+                  <div style="font-size: 0.75rem; color: var(--text-muted);">Private accommodations</div>
+                </div>
+                <div class="counter-controls">
+                  <button class="btn-counter" id="room-minus" type="button">-</button>
+                  <span id="room-count" style="font-weight: 600; width: 20px; text-align: center;">1</span>
+                  <button class="btn-counter" id="room-plus" type="button">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Search CTA Button -->
+          <button class="btn-gold" id="booking-search-btn" style="height: 52px; padding: 0 32px;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Check Availability</span>
+          </button>
+
+        </div>
+      </div>
+
+      <!-- DISCOVERY & FILTERING SECTION -->
+      <section class="section" id="discovery">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Private Sanctuary Collection</span>
+            <h2 class="section-title">Exceptional Places to Unwind</h2>
+          </div>
+          <p class="section-desc">
+            Explore meticulously selected 5-star properties offering bespoke butler services, private pools, and unprecedented privacy.
+          </p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs" id="category-tabs">
+          <button class="cat-tab active" data-category="all">All Stays</button>
+          <button class="cat-tab" data-category="Overwater Suites">Overwater Suites</button>
+          <button class="cat-tab" data-category="Private Villas">Private Villas</button>
+          <button class="cat-tab" data-category="Heritage Palaces">Heritage Palaces</button>
+          <button class="cat-tab" data-category="Alpine Chalets">Alpine Chalets</button>
+          <button class="cat-tab" data-category="City Penthouses">City Penthouses</button>
+        </div>
+
+        <!-- Discovery Grid: Sidebar Filters + Hotels Grid -->
+        <div class="discovery-container">
+          
+          <!-- Filter Sidebar -->
+          <aside class="glass-panel filter-sidebar">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+              <h3 style="font-family: var(--font-display); font-size: 1.15rem;">Refine Stays</h3>
+              <button id="reset-filters-btn" style="font-size: 0.8rem; color: var(--gold-primary); text-decoration: underline;">
+                Reset
+              </button>
+            </div>
+
+            <!-- Keyword Search -->
+            <div class="filter-group">
+              <label class="filter-title" for="filter-search">Keyword / Location</label>
+              <div style="position: relative;">
+                <input 
+                  type="text" 
+                  id="filter-search" 
+                  class="form-control" 
+                  placeholder="Hotel name, city, feature..." 
+                  style="width: 100%; padding-left: 38px;"
+                />
+                <i class="fa-solid fa-magnifying-glass" style="position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--text-muted);"></i>
+              </div>
+            </div>
+
+            <!-- Price Range -->
+            <div class="filter-group">
+              <div class="filter-title">
+                <span>Maximum Nightly Rate</span>
+                <span id="price-max-display" style="color: var(--gold-light); font-weight: 700;">$10,000</span>
+              </div>
+              <div class="range-slider-container">
+                <input 
+                  type="range" 
+                  id="price-range-slider" 
+                  class="range-slider" 
+                  min="1000" 
+                  max="10000" 
+                  step="250" 
+                  value="10000" 
+                />
+                <div class="price-range-labels">
+                  <span>$1,000</span>
+                  <span>$5,000</span>
+                  <span>$10,000+</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Minimum Star Rating -->
+            <div class="filter-group">
+              <label class="filter-title">Guest Acclaim Rating</label>
+              <div class="checkbox-list">
+                <label class="checkbox-item">
+                  <input type="radio" name="filter-rating" value="0" checked />
+                  <span>All Verified Ratings</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="filter-rating" value="4.8" />
+                  <span>★ 4.8 & above (Exceptional)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="radio" name="filter-rating" value="4.95" />
+                  <span>★ 4.95+ (World Pinnacle)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Exclusive Amenities -->
+            <div class="filter-group">
+              <label class="filter-title">Signature Amenities</label>
+              <div class="checkbox-list">
+                <label class="checkbox-item">
+                  <input type="checkbox" class="amenity-filter-cb" value="Michelin Dining" />
+                  <span>Michelin Dining</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="amenity-filter-cb" value="Private Butler" />
+                  <span>Private Butler (24/7)</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="amenity-filter-cb" value="Overwater Infinity Pool" />
+                  <span>Overwater / Infinity Pool</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="amenity-filter-cb" value="Natural Mineral Onsen" />
+                  <span>Spa & Mineral Onsen</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="amenity-filter-cb" value="Ski-in / Ski-out Access" />
+                  <span>Ski-in / Ski-out</span>
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" class="amenity-filter-cb" value="Helipad Transfers" />
+                  <span>Helipad Transfers</span>
+                </label>
+              </div>
+            </div>
+
+          </aside>
+
+          <!-- Hotels Stream -->
+          <div>
+            <!-- Sorting & Result count bar -->
+            <div class="sorting-bar">
+              <span id="results-count" style="font-size: 0.95rem; font-weight: 500; color: var(--text-secondary);">
+                Loading sanctuaries...
+              </span>
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <label for="sort-select" style="font-size: 0.85rem; color: var(--text-muted);">Sort By:</label>
+                <select id="sort-select" class="sort-select">
+                  <option value="recommended">Recommended Privileges</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Highest Guest Rating</option>
+                  <option value="popular">Most In-Demand</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Dynamic Hotels Grid -->
+            <div class="hotels-grid" id="hotels-grid">
+              <!-- Rendered via app.js -->
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- FEATURED DESTINATIONS -->
+      <section class="section" id="destinations" style="border-top: 1px solid var(--border-light);">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Iconic Escapes</span>
+            <h2 class="section-title">World's Most Coveted Horizons</h2>
+          </div>
+          <p class="section-desc">
+            From the tranquil azure lagoons of Noonu Atoll to the quiet morning moss paths of Kyoto.
+          </p>
+        </div>
+
+        <div class="destinations-grid" id="destinations-grid">
+          <!-- Rendered via app.js -->
+        </div>
+      </section>
+
+      <!-- SPECIAL OFFERS & PRIVILEGES -->
+      <section class="section" id="offers">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Curated Privileges</span>
+            <h2 class="section-title">Limited Edition Experiences</h2>
+          </div>
+          <p class="section-desc">
+            Bespoke gastronomy pairings, complimentary twin-engine seaplanes, and guaranteed suite upgrades.
+          </p>
+        </div>
+
+        <div class="offers-grid" id="offers-grid">
+          <!-- Rendered via app.js -->
+        </div>
+      </section>
+
+      <!-- VIP MEMBERSHIP / LOYALTY CLUB -->
+      <section class="section vip-section" id="vip">
+        <div style="text-align: center; max-width: 700px; margin: 0 auto 40px;">
+          <span class="section-tag">The Sovereign Circle</span>
+          <h2 class="section-title">VELA PRIVÉ Loyalty Tiers</h2>
+          <p class="section-desc" style="margin: 12px auto 0;">
+            Elevate your global journey with guaranteed late checkout, Rolls-Royce house transfers, and private island access.
+          </p>
+        </div>
+
+        <div class="tiers-grid">
+          <!-- Silver Privé -->
+          <div class="tier-card">
+            <h3 class="tier-name">Silver Privé</h3>
+            <p class="tier-subtitle">Entry by invitation or 5 nights / year</p>
+            <ul class="tier-benefits">
+              <li><i class="fa-solid fa-check"></i> Welcome bottle of vintage champagne</li>
+              <li><i class="fa-solid fa-check"></i> High-speed priority Wi-Fi & concierge</li>
+              <li><i class="fa-solid fa-check"></i> 12:00 Early Check-in subject to availability</li>
+            </ul>
+            <button class="btn-outline" style="width: 100%;" onclick="VelaApp.showToast('Tier status included with your membership', 'fa-crown')">
+              Included Status
+            </button>
+          </div>
+
+          <!-- Gold Sovereign (Featured) -->
+          <div class="tier-card featured">
+            <div style="position: absolute; top: -14px; right: 24px; background: var(--gold-gradient); color: #080C15; font-size: 0.75rem; font-weight: 700; padding: 4px 14px; border-radius: 999px;">
+              MOST POPULAR
+            </div>
+            <h3 class="tier-name gold-text">Gold Sovereign</h3>
+            <p class="tier-subtitle">15 nights / year or $25,000 spend</p>
+            <ul class="tier-benefits">
+              <li><i class="fa-solid fa-check"></i> Guaranteed suite upgrade upon reservation</li>
+              <li><i class="fa-solid fa-check"></i> Complimentary airport luxury EV transfer</li>
+              <li><i class="fa-solid fa-check"></i> $250 Spa & Michelin dining folio credit</li>
+              <li><i class="fa-solid fa-check"></i> 16:00 Late check-out guaranteed</li>
+            </ul>
+            <button class="btn-gold" style="width: 100%;" onclick="VelaApp.switchView('dashboard')">
+              Access Privileges
+            </button>
+          </div>
+
+          <!-- Platinum Imperial -->
+          <div class="tier-card">
+            <h3 class="tier-name">Platinum Imperial</h3>
+            <p class="tier-subtitle">Strictly by ambassador referral</p>
+            <ul class="tier-benefits">
+              <li><i class="fa-solid fa-check"></i> Dedicated personal global ambassador 24/7</li>
+              <li><i class="fa-solid fa-check"></i> Private helicopter / seaplane arrival transfer</li>
+              <li><i class="fa-solid fa-check"></i> Access to off-market private island villas</li>
+              <li><i class="fa-solid fa-check"></i> Unlimited Michelin chef dining table reservations</li>
+            </ul>
+            <button class="btn-outline" style="width: 100%;" onclick="VelaApp.showToast('Contact Ambassador: concierge@velaprive.com', 'fa-envelope')">
+              Inquire with Ambassador
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VERIFIED GUEST REVIEWS -->
+      <section class="section" id="reviews">
+        <div class="section-header">
+          <div>
+            <span class="section-tag">Verified Acclaim</span>
+            <h2 class="section-title">Reflections of Distinction</h2>
+          </div>
+          <p class="section-desc">
+            Unfiltered accounts from global ambassadors, diplomats, and international visionaries.
+          </p>
+        </div>
+
+        <div class="reviews-grid" id="reviews-grid">
+          <!-- Rendered via app.js -->
+        </div>
+      </section>
+
+    </div>
+
+    <!-- 2. CUSTOMER DASHBOARD VIEW -->
+    <div id="dashboard-view" class="dashboard-wrapper" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 32px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="section-tag">Distinguished Member Account</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2.4rem;">Welcome, Mr. Alexander Vance</h2>
+          <p style="color: var(--text-secondary); margin-top: 4px;">
+            Tier: <strong class="gold-text">Platinum Imperial Member</strong> • Account #VP-904281
+          </p>
+        </div>
+        <button class="btn-gold" onclick="VelaApp.switchView('home')">
+          <i class="fa-solid fa-plus"></i> Reserve New Sanctuary
+        </button>
+      </div>
+
+      <!-- Dashboard Nav Tabs -->
+      <div class="dashboard-nav-tabs">
+        <button class="dash-tab-btn active" data-tab="trips">
+          <i class="fa-solid fa-suitcase"></i> My Stays & Reservations
+        </button>
+        <button class="dash-tab-btn" data-tab="wishlist">
+          <i class="fa-solid fa-heart"></i> Saved Wishlist
+        </button>
+        <button class="dash-tab-btn" data-tab="loyalty">
+          <i class="fa-solid fa-award"></i> Sovereign Rewards & Folio
+        </button>
+        <button class="dash-tab-btn" data-tab="profile">
+          <i class="fa-solid fa-user-gear"></i> Ambassador Preferences
+        </button>
+      </div>
+
+      <!-- Pane 1: Trips -->
+      <div id="dash-pane-trips">
+        <h3 style="font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 16px;">Active & Upcoming Itineraries</h3>
+        <div id="my-bookings-container">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Pane 2: Wishlist -->
+      <div id="dash-pane-wishlist" style="display: none;">
+        <div id="my-wishlist-container">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+
+      <!-- Pane 3: Loyalty -->
+      <div id="dash-pane-loyalty" style="display: none;">
+        <div class="glass-panel" style="padding: 36px; margin-bottom: 30px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 20px;">
+            <div>
+              <span class="section-tag">Privilege Balance</span>
+              <div style="font-family: var(--font-display); font-size: 3rem; color: var(--gold-light); font-weight: 700;">
+                48,250 <span style="font-size: 1.2rem; color: var(--text-secondary); font-weight: 400;">Points</span>
+              </div>
+              <p style="color: var(--text-secondary); margin-top: 6px;">
+                Equivalent to $4,825 in Michelin dining or private helicopter credits across all VELA PRIVÉ destinations.
+              </p>
+            </div>
+            <button class="btn-outline" onclick="VelaApp.showToast('Points credited directly upon room billing checkout', 'fa-credit-card')">
+              Redeem Toward Stay
+            </button>
+          </div>
+          <div style="background: var(--bg-elevated); height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 10px;">
+            <div style="width: 82%; height: 100%; background: var(--gold-gradient);"></div>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted);">
+            <span>Current: Platinum Imperial</span>
+            <span>Next Milestone: Ambassador Laureate (1,750 pts to go)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pane 4: Profile -->
+      <div id="dash-pane-profile" style="display: none;">
+        <div class="glass-panel" style="padding: 36px; max-width: 800px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 20px;">VIP Guest Preferences</h3>
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Full Legal Name</label>
+              <input type="text" class="form-control" value="Alexander Vance" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address</label>
+              <input type="email" class="form-control" value="alexander.vance@velaprive.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Preferred Champagne</label>
+              <input type="text" class="form-control" value="Dom Pérignon Vintage / Krug Clos d'Ambonnay" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pillow Selection</label>
+              <select class="form-control">
+                <option selected>Hungarian White Goose Down</option>
+                <option>Memory Foam Hypoallergenic</option>
+                <option>Organic Lavender Infused Buckwheat</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label class="form-label">Dietary & Butler Instructions</label>
+              <textarea class="form-control" rows="3">Private limousine airport greeting; daily still San Pellegrino at 18°C; non-smoking corner suite.</textarea>
+            </div>
+          </div>
+          <button class="btn-gold" onclick="VelaApp.showToast('Ambassador preferences updated successfully', 'fa-check')">
+            Save Preferences
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 3. HOTEL MANAGEMENT ADMIN SAAS PORTAL VIEW -->
+    <div id="admin-view" class="dashboard-wrapper" style="display: none;">
+      <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 36px; flex-wrap: wrap; gap: 20px;">
+        <div>
+          <span class="section-tag">Enterprise Operations Portal</span>
+          <h2 style="font-family: var(--font-serif); font-size: 2.4rem;">Sanctuary Portfolio SaaS</h2>
+          <p style="color: var(--text-secondary); margin-top: 4px;">
+            Real-time portfolio occupancy, RevPAR calculations, and live reservations controller.
+          </p>
+        </div>
+        <button class="btn-gold" onclick="VelaApp.openAddHotelModal()">
+          <i class="fa-solid fa-hotel"></i> Add New Sanctuary
+        </button>
+      </div>
+
+      <!-- Live KPI Grid -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-title">Total Active Portfolio Revenue</div>
+          <div class="kpi-value" id="admin-kpi-revenue">$0</div>
+          <div class="kpi-trend"><i class="fa-solid fa-arrow-trend-up"></i> +18.4% vs last cycle</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Confirmed Reservations</div>
+          <div class="kpi-value" id="admin-kpi-bookings">0</div>
+          <div class="kpi-trend"><i class="fa-solid fa-check-circle"></i> 100% verified guests</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Average Portfolio Occupancy</div>
+          <div class="kpi-value" id="admin-kpi-occupancy">0%</div>
+          <div class="kpi-trend" style="color: var(--gold-light);"><i class="fa-solid fa-sparkles"></i> Optimal high-season load</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-title">Suites Inventory Monitored</div>
+          <div class="kpi-value" id="admin-kpi-rooms">0</div>
+          <div class="kpi-trend"><i class="fa-solid fa-bed"></i> Global properties</div>
+        </div>
+      </div>
+
+      <!-- Active Reservations Table -->
+      <div class="glass-panel" style="padding: 28px; margin-bottom: 36px; overflow-x: auto;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem;">Live Guest Reservations</h3>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Click status dropdown to update state immediately</span>
+        </div>
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Folio #</th>
+              <th>Guest Name</th>
+              <th>Property</th>
+              <th>Dates</th>
+              <th>Amount</th>
+              <th>Status Action</th>
+            </tr>
+          </thead>
+          <tbody id="admin-bookings-table-body">
+            <!-- Rendered dynamically -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Room Inventory & Pricing Controller -->
+      <h3 style="font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 16px;">Real-Time Suite Inventory & Rates</h3>
+      <div id="admin-rooms-inventory">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+
+  <!-- 1. IMMERSIVE HOTEL DETAILS MODAL -->
+  <div class="modal-overlay" id="hotel-details-modal">
+    <div class="modal-content">
+      <button class="modal-close-btn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Gallery Hero -->
+      <div class="gallery-hero">
+        <img class="gallery-main-img" id="modal-main-img" src="" alt="Hotel" />
+        <div class="gallery-thumbnails" id="modal-gallery-thumbs"></div>
+      </div>
+
+      <!-- Details Body -->
+      <div class="details-body">
+        <div class="details-grid">
+          
+          <!-- Left Column -->
+          <div>
+            <span class="card-badge" id="modal-hotel-badge">Palace</span>
+            <h2 id="modal-hotel-name" style="font-family: var(--font-serif); font-size: 2.2rem; margin: 12px 0 6px;"></h2>
+            <p id="modal-hotel-tagline" style="color: var(--gold-primary); font-size: 1.05rem; margin-bottom: 12px;"></p>
+            <p id="modal-hotel-location" style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 18px;"></p>
+            <div id="modal-hotel-rating" style="color: var(--gold-light); font-weight: 600; margin-bottom: 24px;"></div>
+
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 10px;">About the Sanctuary</h3>
+            <p id="modal-hotel-description" style="color: var(--text-secondary); line-height: 1.8; margin-bottom: 28px;"></p>
+
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 12px;">Curated Highlights</h3>
+            <ul id="modal-highlights-list" style="list-style: none; margin-bottom: 28px;"></ul>
+
+            <h3 style="font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 12px;">Signature Amenities</h3>
+            <div id="modal-amenities-list" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px;"></div>
+
+            <!-- Available Rooms & Suites -->
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 16px;">Available Suites & Residences</h3>
+            <div class="rooms-selection-list" id="modal-rooms-container"></div>
+          </div>
+
+          <!-- Right Column: Policies & Quick Summary -->
+          <div>
+            <div class="glass-panel" style="padding: 24px; position: sticky; top: 20px;">
+              <h4 style="font-family: var(--font-display); font-size: 1.1rem; margin-bottom: 16px;">Property Policies</h4>
+              <div style="display: flex; flex-direction: column; gap: 14px; font-size: 0.9rem;">
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Check-in / Check-out</span>
+                  <strong style="color: var(--text-primary);">From <span id="modal-policy-checkin"></span> / Until <span id="modal-policy-checkout"></span></strong>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Cancellation Policy</span>
+                  <span id="modal-policy-cancellation" style="color: var(--accent-emerald);"></span>
+                </div>
+                <div>
+                  <span style="color: var(--text-muted); display: block;">Pets & Animals</span>
+                  <span id="modal-policy-pets" style="color: var(--text-secondary);"></span>
+                </div>
+                <div style="border-top: 1px solid var(--border-light); padding-top: 16px; margin-top: 6px;">
+                  <span style="color: var(--gold-primary); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; display: block; margin-bottom: 6px;">
+                    Ambassador Guarantee
+                  </span>
+                  <p style="font-size: 0.85rem; color: var(--text-muted); line-height: 1.5;">
+                    Best private rate guarantee. Zero booking fees. Direct champagne greeting with the general manager.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MULTI-STEP BOOKING WIZARD MODAL -->
+  <div class="modal-overlay" id="booking-flow-modal">
+    <div class="modal-content booking-modal-content" style="padding: 40px;">
+      <button class="modal-close-btn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Stepper Indicator -->
+      <div class="booking-stepper">
+        <div class="step-node active" id="step-node-1">
+          <div class="step-circle">1</div>
+          <span class="step-title">Suite</span>
+        </div>
+        <div class="step-node" id="step-node-2">
+          <div class="step-circle">2</div>
+          <span class="step-title">Guest</span>
+        </div>
+        <div class="step-node" id="step-node-3">
+          <div class="step-circle">3</div>
+          <span class="step-title">Review</span>
+        </div>
+        <div class="step-node" id="step-node-4">
+          <div class="step-circle">4</div>
+          <span class="step-title">Payment</span>
+        </div>
+        <div class="step-node" id="step-node-5">
+          <div class="step-circle">5</div>
+          <span class="step-title">Confirmed</span>
+        </div>
+      </div>
+
+      <!-- STEP 1 PANE: Room & Dates Confirmation -->
+      <div id="booking-step-pane-1">
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px;">Confirm Reservation Dates</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Verify your selected luxury suite and travel timeframe.</p>
+        
+        <div class="glass-panel" style="padding: 24px; margin-bottom: 28px;">
+          <div style="font-family: var(--font-display); font-size: 1.25rem; color: var(--gold-light); margin-bottom: 4px;" id="step1-hotel-name"></div>
+          <div style="font-size: 1rem; font-weight: 600; margin-bottom: 14px;" id="step1-room-name"></div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; font-size: 0.9rem;">
+            <div>
+              <span style="color: var(--text-muted); display: block;">Itinerary Window</span>
+              <span id="step1-dates-summary" style="font-weight: 500;"></span>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block;">Party Size</span>
+              <span id="step1-guests-summary" style="font-weight: 500;"></span>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block;">Rate per Night</span>
+              <span id="step1-rate-night" style="font-weight: 700; color: var(--gold-primary);"></span>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); display: block;">Deposit Policy</span>
+              <span style="color: var(--accent-emerald); font-weight: 500;">No advance charge required</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2 PANE: Guest Information Form -->
+      <div id="booking-step-pane-2" style="display: none;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px;">Primary Guest Credentials</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Please provide the primary resident's contact details for concierge arrival arrangements.</p>
+        
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label" for="guest-name-input">Full Legal Name *</label>
+            <input type="text" id="guest-name-input" class="form-control" value="Alexander Vance" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="guest-email-input">Electronic Mail *</label>
+            <input type="email" id="guest-email-input" class="form-control" value="alexander.vance@velaprive.com" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="guest-phone-input">Mobile Phone (with country code)</label>
+            <input type="tel" id="guest-phone-input" class="form-control" value="+1 (555) 392-8812" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Country of Residence</label>
+            <input type="text" class="form-control" value="United Kingdom / Monaco" />
+          </div>
+          <div class="form-group full-width">
+            <label class="form-label" for="guest-requests-input">VIP Concierge & Special Requests</label>
+            <textarea id="guest-requests-input" class="form-control" rows="3" placeholder="Chilled champagne on arrival, Rolls-Royce airport transfer, dietary specifications..."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 3 PANE: Reservation Summary & Promo Code -->
+      <div id="booking-step-pane-3" style="display: none;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px;">Review Folio & Privilege Codes</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Review all transparent room rates, luxury taxes, and apply exclusive privilege codes.</p>
+
+        <!-- Promo Code Bar -->
+        <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+          <input type="text" id="booking-promo-input" class="form-control" placeholder="Enter Privilege Code (e.g. LUXURY2026, PARISLUXE)" style="text-transform: uppercase;" />
+          <button class="btn-gold" id="apply-promo-btn" style="white-space: nowrap;">Apply Code</button>
+        </div>
+
+        <div class="glass-panel" style="padding: 24px; margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem;">
+            <span id="summary-room-calc">Room Subtotal</span>
+            <span id="summary-room-subtotal" style="font-weight: 600;">$0</span>
+          </div>
+          <div id="summary-discount-row" style="display: none; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem; color: var(--accent-emerald);">
+            <span>Privilege Discount</span>
+            <span id="summary-discount-val">-$0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 0.95rem;">
+            <span>Luxury Hospitality Tax (12%)</span>
+            <span id="summary-tax">$0</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px; font-size: 0.95rem;">
+            <span>Resort Concierge & Valet Butler Fee</span>
+            <span id="summary-service-fee">$150</span>
+          </div>
+          <div style="border-top: 1px solid var(--border-light); padding-top: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <span style="font-size: 1.1rem; font-weight: 700;">Total Folio Amount</span>
+              <span style="display: block; font-size: 0.75rem; color: var(--text-muted);">All international tariffs included</span>
+            </div>
+            <div id="summary-total" style="font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--gold-light);">
+              $0
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 4 PANE: Demo Payment Interface -->
+      <div id="booking-step-pane-4" style="display: none;">
+        <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-bottom: 12px;">Demo Payment Gateway</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 24px;">Safe, portfolio-simulated payment gateway. Total due: <strong class="gold-text" id="payment-total-display">$0</strong></p>
+
+        <!-- Credit Card Preview -->
+        <div class="credit-card-preview">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="card-chip"></div>
+            <span style="font-family: var(--font-display); font-size: 0.9rem; letter-spacing: 0.1em; color: var(--gold-light);">VELA BLACK</span>
+          </div>
+          <div class="card-preview-number" id="card-preview-number">•••• •••• •••• ••••</div>
+          <div class="card-preview-footer">
+            <div>
+              <span style="font-size: 0.65rem; color: var(--text-muted); display: block;">CARDHOLDER</span>
+              <span class="card-preview-name" id="card-preview-holder">ALEXANDER VANCE</span>
+            </div>
+            <div>
+              <span style="font-size: 0.65rem; color: var(--text-muted); display: block;">EXPIRES</span>
+              <span style="font-family: monospace; font-size: 0.85rem;" id="card-preview-expiry">12/28</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label class="form-label" for="card-number-input">Card Number</label>
+            <input type="text" id="card-number-input" class="form-control" placeholder="4532 8901 2345 6789" value="4532 8901 2345 6789" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="card-name-input">Cardholder Full Name</label>
+            <input type="text" id="card-name-input" class="form-control" value="Alexander Vance" />
+          </div>
+          <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div>
+              <label class="form-label" for="card-exp-input">Expiry Date</label>
+              <input type="text" id="card-exp-input" class="form-control" placeholder="MM/YY" value="12/28" />
+            </div>
+            <div>
+              <label class="form-label">Security CVV</label>
+              <input type="password" class="form-control" placeholder="•••" value="894" maxlength="4" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 5 PANE: Booking Confirmation & Digital Voucher -->
+      <div id="booking-step-pane-5" style="display: none;">
+        <div style="text-align: center; margin-bottom: 28px;">
+          <i class="fa-solid fa-circle-check" style="font-size: 3.5rem; color: var(--accent-emerald); margin-bottom: 12px;"></i>
+          <h3 style="font-family: var(--font-serif); font-size: 2rem;">Reservation Confirmed</h3>
+          <p style="color: var(--text-secondary);">Your stay has been officially secured with VELA PRIVÉ International.</p>
+        </div>
+
+        <!-- Printable Voucher Folio -->
+        <div class="booking-voucher printable-voucher">
+          <div class="voucher-header">
+            <div>
+              <div style="font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--gold-light);">VELA PRIVÉ</div>
+              <span style="font-size: 0.8rem; color: var(--text-muted);">Official Accommodation Voucher & Folio</span>
+            </div>
+            <div style="text-align: right;">
+              <div style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Booking Reference</div>
+              <div style="font-family: monospace; font-size: 1.25rem; font-weight: 700; color: var(--gold-primary);" id="confirm-booking-id"></div>
+            </div>
+          </div>
+
+          <div class="voucher-details-grid">
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Property</span>
+              <div style="font-weight: 600;" id="confirm-hotel-name"></div>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Suite Type</span>
+              <div style="font-weight: 600;" id="confirm-room-name"></div>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Primary Guest</span>
+              <div style="font-weight: 600;" id="confirm-guest-name"></div>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Confirmed Dates</span>
+              <div style="font-weight: 600;" id="confirm-dates"></div>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Total Billed</span>
+              <div style="font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; color: var(--gold-light);" id="confirm-total"></div>
+            </div>
+            <div>
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase;">Payment Status</span>
+              <div style="color: var(--accent-emerald); font-weight: 600;">Authorized & Confirmed</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px dashed var(--gold-border); padding-top: 20px;">
+            <div style="font-size: 0.8rem; color: var(--text-muted); max-width: 450px;">
+              Please present this voucher or provide your reference ID upon hotel arrival. 24-hour limousine concierge is on standby.
+            </div>
+            <div class="voucher-qr-box">
+              <i class="fa-solid fa-qrcode" style="font-size: 4rem; color: #080C15;"></i>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 28px;" class="no-print">
+          <button class="btn-gold" id="print-voucher-btn">
+            <i class="fa-solid fa-print"></i> Print Voucher Folio
+          </button>
+          <button class="btn-outline" onclick="VelaApp.switchView('dashboard'); document.getElementById('booking-flow-modal').classList.remove('active');">
+            <i class="fa-solid fa-suitcase"></i> View in My Trips
+          </button>
+        </div>
+      </div>
+
+      <!-- Action Buttons for Stepper Navigation -->
+      <div style="display: flex; justify-content: space-between; margin-top: 32px;" class="no-print">
+        <button class="btn-outline" id="booking-prev-btn" style="display: none;">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+        <button class="btn-gold" id="booking-next-btn" style="margin-left: auto;">
+          Continue <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 3. WISHLIST COMPARISON MODAL -->
+  <div class="modal-overlay" id="compare-modal">
+    <div class="modal-content" style="padding: 36px; max-width: 900px;">
+      <button class="modal-close-btn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 8px;">Property Comparison Matrix</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">Side-by-side evaluation of your saved luxury sanctuaries.</p>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left;" id="compare-table-body">
+          <!-- Rendered dynamically -->
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. ADMIN: ADD NEW HOTEL MODAL -->
+  <div class="modal-overlay" id="add-hotel-modal">
+    <div class="modal-content" style="padding: 36px; max-width: 800px;">
+      <button class="modal-close-btn" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <h3 style="font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 8px;">Add New Luxury Sanctuary</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 24px;">Expand the VELA PRIVÉ portfolio with an elite new international destination.</p>
+
+      <form id="add-hotel-form">
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label class="form-label" for="new-hotel-name">Property Name *</label>
+            <input type="text" id="new-hotel-name" class="form-control" placeholder="e.g. The Eden Rock Peninsula" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-hotel-destination">Full Destination *</label>
+            <input type="text" id="new-hotel-destination" class="form-control" placeholder="e.g. St. Barths, Caribbean" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-hotel-city">City / Area</label>
+            <input type="text" id="new-hotel-city" class="form-control" placeholder="St. Jean Bay" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-hotel-country">Country</label>
+            <input type="text" id="new-hotel-country" class="form-control" placeholder="French West Indies" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-hotel-category">Category</label>
+            <select id="new-hotel-category" class="form-control">
+              <option value="Private Villas">Private Villas</option>
+              <option value="Overwater Suites">Overwater Suites</option>
+              <option value="Heritage Palaces">Heritage Palaces</option>
+              <option value="Alpine Chalets">Alpine Chalets</option>
+              <option value="City Penthouses">City Penthouses</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-hotel-price">Starting Nightly Rate (USD) *</label>
+            <input type="number" id="new-hotel-price" class="form-control" placeholder="1850" min="500" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="new-hotel-image">Hero Photography URL (Unsplash or Direct)</label>
+            <input type="url" id="new-hotel-image" class="form-control" placeholder="https://images.unsplash.com/..." />
+          </div>
+          <div class="form-group full-width">
+            <label class="form-label" for="new-hotel-desc">Sanctuary Overview & Story</label>
+            <textarea id="new-hotel-desc" class="form-control" rows="3" placeholder="Describe the exclusive location, design philosophy, and private amenities..."></textarea>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 14px; margin-top: 10px;">
+          <button type="button" class="btn-outline" onclick="document.getElementById('add-hotel-modal').classList.remove('active')">Cancel</button>
+          <button type="submit" class="btn-gold"><i class="fa-solid fa-plus"></i> List Sanctuary</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="brand-icon"><i class="fa-solid fa-gem"></i></div>
+          <div>
+            <div class="brand-name">VELA PRIVÉ</div>
+            <span class="brand-sub">Hotels & Resorts</span>
+          </div>
+        </div>
+        <p>
+          The benchmark of international luxury hospitality. We curate private sanctuaries where uncompromising refinement, privacy, and genuine hospitality unite.
+        </p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Destinations</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="VelaApp.filterByDestination('Paris'); return false;">Paris & French Riviera</a></li>
+          <li><a href="#" onclick="VelaApp.filterByDestination('Maldives'); return false;">Maldives Private Atolls</a></li>
+          <li><a href="#" onclick="VelaApp.filterByDestination('Kyoto'); return false;">Kyoto Ancient Gardens</a></li>
+          <li><a href="#" onclick="VelaApp.filterByDestination('Amalfi Coast'); return false;">Amalfi Coast Clifftops</a></li>
+          <li><a href="#" onclick="VelaApp.filterByDestination('St. Moritz'); return false;">Engadin Swiss Alps</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>The Brand</h4>
+        <ul class="footer-links">
+          <li><a href="#discovery">Sanctuary Portfolio</a></li>
+          <li><a href="#offers">Private Privileges</a></li>
+          <li><a href="#vip">VIP Sovereign Club</a></li>
+          <li><a href="#" onclick="VelaApp.switchView('admin'); return false;">Hotelier SaaS Portal</a></li>
+          <li><a href="#" onclick="VelaApp.switchView('dashboard'); return false;">Guest Dashboard</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Private Dispatch</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">
+          Subscribe to receive secret off-market villa offerings and private island releases.
+        </p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); VelaApp.showToast('Subscribed to private ambassador releases', 'fa-envelope'); this.reset();">
+          <input type="email" class="form-control" placeholder="ambassador@domain.com" required style="font-size: 0.85rem;" />
+          <button type="submit" class="btn-gold" style="padding: 0 16px;"><i class="fa-solid fa-arrow-right"></i></button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 VELA PRIVÉ Hospitality Group. All Worldwide Rights Reserved.</div>
+      <div style="display: flex; gap: 24px;">
+        <a href="#">Privacy Charter</a>
+        <a href="#">Terms of Distinction</a>
+        <a href="#">Cookie Protocol</a>
+        <a href="#">Security Safeguards</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts: Direct root files -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
